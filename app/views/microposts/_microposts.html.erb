@@ -10,10 +10,12 @@
           <div>
             <p><%= micropost.content %></p>
           </div>
-          <div>
+          <div class="btn-group" role="btn-group">
             <% if current_user == micropost.user %>
-              <%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+              <%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-outline-danger btn-sm' %>
             <% end %>
+            <!-- お気に入りの課題で追加 -->
+            <%= render 'favorites/bookmark_button', micropost: micropost %>
           </div>
         </div>
       </li>
